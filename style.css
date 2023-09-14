@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background: url("images/hero-bg.jpg") center/cover no-repeat;
+}
+
+.show-popup .blur-bg-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+.show-popup .form-popup {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease, opacity 0.1s;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  padding: 0 10px;
+}
+header .navbar {
+  padding: 22px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (max-width: 950px) {
+  header .navbar {
+    padding: 15px 0;
+  }
+}
+header .navbar .menu-btn {
+  color: #514f5e;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: none;
+}
+@media (max-width: 950px) {
+  header .navbar .menu-btn {
+    display: block;
+  }
+}
+header .navbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+header .navbar .logo img {
+  width: 110px;
+  border-radius: 50%;
+}
+@media (max-width: 950px) {
+  header .navbar .logo img {
+    display: none;
+  }
+}
+header .navbar .logo h2 {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #514f5e;
+}
+@media (max-width: 950px) {
+  header .navbar .logo h2 {
+    font-size: 1.4rem;
+  }
+}
+header .navbar .links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 35px;
+}
+@media (max-width: 950px) {
+  header .navbar .links {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    display: block;
+    padding-top: 60px;
+    text-align: center;
+  }
+  header .navbar .links.show-menu {
+    left: 0;
+  }
+}
+header .navbar .links .close-menu-btn {
+  color: #514f5e;
+  cursor: pointer;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: none;
+}
+@media (max-width: 950px) {
+  header .navbar .links .close-menu-btn {
+    display: block;
+  }
+}
+header .navbar .links li a {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #514f5e;
+}
+@media (max-width: 950px) {
+  header .navbar .links li a {
+    display: inline-flex;
+    margin: 20px 0;
+    font-size: 1.2rem;
+  }
+}
+header .navbar .links li a:hover {
+  color: #25242e;
+}
+header .navbar .login-btn {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 3px;
+  cursor: pointer;
+  color: #514f5e;
+  background: #fff;
+}
+@media (max-width: 950px) {
+  header .navbar .login-btn {
+    font-size: 0.9rem;
+    padding: 7px 10px;
+  }
+}
+
+.blur-bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  transition: 0.1s ease;
+}
+
+.form-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  max-width: 720px;
+  opacity: 0;
+  pointer-events: none;
+  background: #fff;
+  border: 2px solid #fff;
+  transform: translate(-50%, -100%);
+}
+@media (max-width: 760px) {
+  .form-popup {
+    width: 95%;
+  }
+}
+.form-popup.show-signup .form-box.login {
+  display: none;
+}
+.form-popup.show-signup .form-box.signup {
+  display: flex;
+}
+.form-popup .close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: #878484;
+  cursor: pointer;
+}
+.form-popup .form-box {
+  display: flex;
+}
+.form-popup .form-box.login .form-details {
+  background: url("images/login.png") center/cover no-repeat;
+}
+.form-popup .form-box.signup {
+  display: none;
+}
+.form-popup .form-box.signup .form-details {
+  background: url("images/signup.png") center/cover no-repeat;
+}
+.form-popup .form-box .form-details {
+  color: #fff;
+  max-width: 330px;
+  width: 100%;
+}
+@media (max-width: 760px) {
+  .form-popup .form-box .form-details {
+    display: none;
+  }
+}
+.form-popup .form-box .form-details .blur {
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  height: 100%;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form-popup .form-box .form-details .blur h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.form-popup .form-box .form-content {
+  width: 100%;
+  padding: 35px;
+}
+@media (max-width: 760px) {
+  .form-popup .form-box .form-content {
+    padding: 30px 20px;
+  }
+}
+.form-popup .form-box .form-content form .input-field {
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+}
+.form-popup .form-box .form-content form .input-field input {
+  height: 100%;
+  width: 100%;
+  font-size: 1rem;
+  border: 1px solid #717171;
+  border-radius: 3px;
+  outline: none;
+  padding: 0 15px;
+}
+.form-popup .form-box .form-content form .input-field input:focus {
+  border-color: #00bcd4;
+}
+.form-popup .form-box .form-content form .input-field input:focus, .form-popup .form-box .form-content form .input-field input:valid {
+  padding: 16px 15px 0;
+}
+.form-popup .form-box .form-content form .input-field input:focus ~ label, .form-popup .form-box .form-content form .input-field input:valid ~ label {
+  color: #00bcd4;
+  font-size: 0.75rem;
+  transform: translateY(-120%);
+}
+.form-popup .form-box .form-content form .input-field label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  color: #717171;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: 0.3s ease;
+}
+.form-popup .form-box .form-content form a {
+  display: inline-flex;
+  margin-top: 14px;
+  font-size: 0.95rem;
+}
+.form-popup .form-box .form-content form a:hover {
+  text-decoration: underline;
+}
+.form-popup .form-box .form-content form .policy-text input {
+  width: 14px;
+  height: 14px;
+  margin-right: 7px;
+}
+.form-popup .form-box .form-content form button {
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 14px 0;
+  border-radius: 3px;
+  margin: 24px 0;
+  color: #fff;
+  background: #00bcd4;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+.form-popup .form-box .form-content form button:hover {
+  background: #0097a7;
+}
+.form-popup .form-box .form-content .button-link {
+  text-align: center;
+}
+.form-popup .form-box .form-content .button-link a:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=style.css.map */
